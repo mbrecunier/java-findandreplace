@@ -9,7 +9,7 @@ public class App {
   }
 
   public static String findAndReplace(String userString, String userFind, String userReplace) {
-    String changedString = userString.replaceAll(userFind, userReplace);
+    String changedString = userString.replaceAll("(?i)"+userFind, userReplace);
     return changedString;
   }
 

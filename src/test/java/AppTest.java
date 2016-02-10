@@ -39,4 +39,10 @@ public class AppTest extends FluentTest {
     App testApp = new App();
     assertEquals("My dog likes doghedrals", testApp.findAndReplace("My cat likes cathedrals", "cat", "dog"));
   }
+
+  @Test
+  public void findAndReplace_willBeCaseInsensitive_ChangedString() {
+    App testApp = new App();
+    assertEquals("dOg dOg dOg dOg", testApp.findAndReplace("CAT cat cAt CaT", "cat", "dOg"));
+  }
 }
