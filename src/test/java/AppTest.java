@@ -12,13 +12,31 @@ public class AppTest extends FluentTest {
   public WebDriver getDefaultDriver() {
       return webDriver;
   }
-
-  @ClassRule
-  public static ServerRule server = new ServerRule();
+  //
+  // @ClassRule
+  // public static ServerRule server = new ServerRule();
+  //
+  // @Test
+  // public void rootTest() {
+  //     goTo("http://localhost:4567/");
+  //     assertThat(pageSource()).contains("");
+  // }
 
   @Test
-  public void rootTest() {
-      goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("");
+  public void findAndReplace_willReplaceWorldWithUniverse_ChangedString() {
+    App testApp = new App();
+    assertEquals("Hello Universe", testApp.findAndReplace("Hello World", "World", "Universe"));
+  }
+
+  @Test
+  public void findAndReplace_willReplaceWorldWithDog_ChangedString() {
+    App testApp = new App();
+    assertEquals("Hello Dog", testApp.findAndReplace("Hello World", "World", "Dog"));
+  }
+
+  @Test
+  public void findAndReplace_willReplacePartialMatches_ChangedString() {
+    App testApp = new App();
+    assertEquals("My dog likes doghedrals", testApp.findAndReplace("My cat likes cathedrals", "cat", "dog"));
   }
 }
